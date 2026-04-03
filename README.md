@@ -134,4 +134,4 @@ This project is licensed under the [MIT Licence](LICENSE).
 
 ---
 
-Built as a DofE Gold Skills project (IT section).
+Built as a Gold DofE Skills project (IT section).
