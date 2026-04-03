@@ -253,11 +253,35 @@ Use descriptive branch names with prefixes:
 
 ## Agent Factory
 
-This project includes an Agent Factory — a team of four specialist agents that can design and build custom agent teams for any project. Use them by invoking:
+This project includes an Agent Factory — a team of four specialist agents that can design and build custom agent teams for any project.
 
-- `agent-architect` — to design a team of agents for your needs
-- `prompt-engineer` — to write the agent prompts
-- `systems-engineer` — to configure tools, permissions, and models
-- `qa-reviewer` — to review and validate the agents
+### The Factory Team
+
+| Agent | What It Does |
+|-------|-------------|
+| `agent-architect` | Designs agent teams — analyses the project and plans which agents are needed |
+| `prompt-engineer` | Writes the agent files with proper frontmatter and focused prompts |
+| `systems-engineer` | Configures tool permissions, model selection, and inter-agent integration |
+| `qa-reviewer` | Reviews agents for quality — checks for gaps, vague prompts, and permission issues |
+
+### When to Use the Factory
+
+You MUST proactively invoke the factory agents in these situations:
+
+- **User asks for a new agent or agent team** — invoke `agent-architect` first, then `prompt-engineer` to build, `systems-engineer` to validate, and `qa-reviewer` to check quality
+- **User asks to modify or improve an existing agent** — invoke `prompt-engineer` (for prompt changes) or `systems-engineer` (for tool/model changes)
+- **User asks for help with a complex project and no specialist agents exist yet** — suggest using the `agent-architect` to design a team tailored to their project
+- **User asks to review their agents** — invoke `qa-reviewer`
+
+### The Pipeline
+
+The factory works as a pipeline. Follow this order:
+
+1. **Agent Architect** → designs the team structure
+2. **Prompt Engineer** → builds the agent files in `.claude/agents/`
+3. **Systems Engineer** → reviews and refines tool permissions and models
+4. **QA Reviewer** → final quality gate before the agents are used
+
+You do not need to run all four for every task. For a simple agent modification, the Prompt Engineer alone may suffice. For a new team, run the full pipeline.
 
 See `docs/agent-factory.md` for full usage instructions.
