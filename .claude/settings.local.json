@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit",
+      "Bash(where claude:*)",
+      "Bash(npm list:*)",
+      "Bash(npx --yes @anthropic-ai/claude-code --version)"
+    ]
+  }
+}
